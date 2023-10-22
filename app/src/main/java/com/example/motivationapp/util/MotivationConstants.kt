@@ -4,4 +4,10 @@ class MotivationConstants private constructor() { //Private constructor indica q
     object KEY {
         const val USER_NAME = "USER_NAME"
     }
+
+    object FILTER {
+        const val ALL = 1
+        const val HAPPY = 2
+        const val SUNNY = 3
+    }
 }

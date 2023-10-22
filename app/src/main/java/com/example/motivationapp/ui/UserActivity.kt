@@ -20,6 +20,8 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.hide()
 
         binding.btnSalvar.setOnClickListener(this)
+
+        verifyUserName()
     }
 
     override fun onClick(view: View) {
@@ -32,11 +34,21 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         val nome = binding.edtNome.text.toString()
         if(nome != "") {
             SecurityPreferences(this).storeString(MotivationConstants.KEY.USER_NAME, nome)
-
-            startActivity(Intent(this, MainActivity::class.java)) //Carrega activity main
-            finish() //Irá destruir a activity atual
+            initActivityMain()
         } else {
             Toast.makeText(this, R.string.validation_name, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun verifyUserName() {
+        val nome = SecurityPreferences(this).getString(MotivationConstants.KEY.USER_NAME)
+        if(nome != "") {
+            initActivityMain()
+        }
+    }
+
+    private fun initActivityMain() {
+        startActivity(Intent(this, MainActivity::class.java)) //Carrega activity main
+        finish() //Irá destruir a activity atual
     }
 }

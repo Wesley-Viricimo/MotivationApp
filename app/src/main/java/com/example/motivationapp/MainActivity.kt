@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         supportActionBar?.hide() //Se a supportActionBar existir, será escondida
 
+        handleUserName()
+
         binding.btnNovaFrase.setOnClickListener(this)
     }
 
@@ -21,5 +23,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         if(view.id == R.id.btn_nova_frase) {
 
         }
+    }
+
+    private fun handleUserName() {
+        binding.tvNomeUsuario.text = "Olá, ${SecurityPreferences(this).getString("USER_NAME")}"
     }
 }

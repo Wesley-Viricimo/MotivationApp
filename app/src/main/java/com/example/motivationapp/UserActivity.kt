@@ -28,6 +28,8 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
     private fun handleSave() {
         val nome = binding.edtNome.text.toString()
         if(nome != "") {
+            SecurityPreferences(this).storeString("USER_NAME", nome)
+
             startActivity(Intent(this, MainActivity::class.java)) //Carrega activity main
             finish() //Irá destruir a activity atual
         } else {

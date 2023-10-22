@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linear_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
@@ -30,6 +31,14 @@
             android:layout_weight="1"
             android:src="@drawable/ic_sunny"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olá, kotlin"
+        android:layout_below="@id/linear_menu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
 
     <TextView
         android:id="@+id/tv_frase"

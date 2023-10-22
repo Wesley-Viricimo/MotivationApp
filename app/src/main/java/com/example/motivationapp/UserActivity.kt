@@ -1,5 +1,6 @@
 package com.example.motivationapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,7 +21,17 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if(view.id == R.id.btn_salvar) {
-            Toast.makeText(this, "Testando botão", Toast.LENGTH_SHORT).show()
+            handleSave()
+        }
+    }
+
+    private fun handleSave() {
+        val nome = binding.edtNome.text.toString()
+        if(nome != "") {
+            startActivity(Intent(this, MainActivity::class.java)) //Carrega activity main
+            finish() //Irá destruir a activity atual
+        } else {
+            Toast.makeText(this, R.string.validation_name, Toast.LENGTH_SHORT).show()
         }
     }
 }

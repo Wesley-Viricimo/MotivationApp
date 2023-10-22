@@ -41,21 +41,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         binding.ivAll.setColorFilter(ContextCompat.getColor(this, R.color.dark_purple)) //Setando cor no componente selecionado
         binding.ivSunny.setColorFilter(ContextCompat.getColor(this, R.color.dark_purple)) //Setando cor no componente selecionado
         binding.ivHappy.setColorFilter(ContextCompat.getColor(this, R.color.dark_purple)) //Setando cor no componente selecionado
+        binding.viewAll.setBackgroundColor(ContextCompat.getColor(this, R.color.dark_purple))
+        binding.viewSunny.setBackgroundColor(ContextCompat.getColor(this, R.color.dark_purple))
+        binding.viewHappy.setBackgroundColor(ContextCompat.getColor(this, R.color.dark_purple))
 
         when (id) {
             R.id.iv_all -> {
                 binding.ivAll.setColorFilter(ContextCompat.getColor(this, R.color.white)) //Setando cor no componente selecionado
-                binding.viewAll.setBackgroundColor(Color.WHITE)
+                binding.viewAll.setBackgroundColor(getColor(R.color.white))
                 categoryId = MotivationConstants.FILTER.ALL
             }
             R.id.iv_sunny -> {
                 binding.ivSunny.setColorFilter(ContextCompat.getColor(this, R.color.white)) //Setando cor no componente selecionado
-                binding.viewSunny.setBackgroundColor(Color.WHITE)
+                binding.viewSunny.setBackgroundColor(getColor(R.color.white))
                 categoryId = MotivationConstants.FILTER.SUNNY
             }
             R.id.iv_happy -> {
                 binding.ivHappy.setColorFilter(ContextCompat.getColor(this, R.color.white)) //Setando cor no componente selecionado
-                binding.viewHappy.setBackgroundColor(Color.WHITE)
+                binding.viewHappy.setBackgroundColor(getColor(R.color.white))
                 categoryId = MotivationConstants.FILTER.HAPPY
             }
         }

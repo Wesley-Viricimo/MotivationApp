@@ -7,6 +7,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.motivationapp.util.MotivationConstants
 import com.example.motivationapp.R
+import com.example.motivationapp.data.Mock
 import com.example.motivationapp.util.SecurityPreferences
 import com.example.motivationapp.databinding.ActivityMainBinding
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         handleUserName()
         handleFilter(R.id.iv_all)
+        handleNextFrase()
 
         binding.btnNovaFrase.setOnClickListener(this)
         binding.ivAll.setOnClickListener(this)
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onClick(view: View) {
         if(view.id == R.id.btn_nova_frase) {
-
+            handleNextFrase()
         } else if(view.id in listOf(R.id.iv_all, R.id.iv_happy, R.id.iv_sunny)) { //Se o componente selecionado estiver entre os elementos da lista
             handleFilter(view.id)
         }
@@ -62,6 +64,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 categoryId = MotivationConstants.FILTER.HAPPY
             }
         }
+    }
+
+    private fun handleNextFrase() {
+        binding.tvFrase.text = Mock().getFrase(categoryId)
     }
 
     private fun handleUserName() {

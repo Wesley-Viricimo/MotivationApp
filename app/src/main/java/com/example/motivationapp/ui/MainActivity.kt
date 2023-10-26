@@ -1,5 +1,6 @@
 package com.example.motivationapp.ui
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,13 +30,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         binding.ivAll.setOnClickListener(this)
         binding.ivHappy.setOnClickListener(this)
         binding.ivSunny.setOnClickListener(this)
+        binding.tvNomeUsuario.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        if(view.id == R.id.btn_nova_frase) {
-            handleNextFrase()
-        } else if(view.id in listOf(R.id.iv_all, R.id.iv_happy, R.id.iv_sunny)) { //Se o componente selecionado estiver entre os elementos da lista
-            handleFilter(view.id)
+        when (view.id) {
+            R.id.btn_nova_frase -> {
+                handleNextFrase()
+            }
+            in listOf(R.id.iv_all, R.id.iv_happy, R.id.iv_sunny) -> { //Se o componente selecionado estiver entre os elementos da lista
+                handleFilter(view.id)
+            }
+            R.id.tv_nome_usuario -> {
+                startActivity(Intent(this, UserActivity::class.java))
+                finish()
+                SecurityPreferences(this).cleanString()
+            }
         }
     }
 

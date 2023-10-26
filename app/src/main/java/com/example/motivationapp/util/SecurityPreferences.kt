@@ -15,4 +15,8 @@ class SecurityPreferences (context: Context) { //Receber o contexto por parâmet
     fun getString(key: String) : String {
         return security.getString(key, "") ?: "" //Elvis operator, caso a string seja nula, retorna vazio
     }
+
+    fun cleanString() {
+        security.edit().clear().apply()
+    }
 }
